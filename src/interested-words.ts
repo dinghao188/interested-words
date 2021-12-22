@@ -40,8 +40,8 @@ export class InterestedWords {
         }
     }
 
-    //clear the highlights of specified TextEditor
-    ClearForEditor(editor: vscode.TextEditor | undefined) {
+    //clean the highlights of specified TextEditor
+    CleanForEditor(editor: vscode.TextEditor | undefined) {
         if (editor === undefined) return;
 
         for (const hp of this.highlight_points.values()) {

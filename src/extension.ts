@@ -1,9 +1,9 @@
 import * as vscode from 'vscode';
 import { InterestedWords } from './interested-words';
 
-const interestedWords: InterestedWords = new InterestedWords();
-
 export function activate(context: vscode.ExtensionContext) {
+	const interestedWords = new InterestedWords();
+
 	let disposable = vscode.commands.registerCommand('interested-words.helloWorld', () => {
 		vscode.window.showInformationMessage('Hello World from interested-words!');
 	});
@@ -33,12 +33,13 @@ export function activate(context: vscode.ExtensionContext) {
 	context.subscriptions.push(disposable);
 
 	disposable = vscode.commands.registerCommand('interested-words.clearAllHighlights', () => {
-		interestedWords.ClearForEditor(vscode.window.activeTextEditor);
+		interestedWords.CleanForEditor(vscode.window.activeTextEditor);
 		interestedWords.Clear();
 	});
+	context.subscriptions.push(disposable);
 
 	disposable = vscode.window.onDidChangeActiveTextEditor((oldEditor) => {
-		interestedWords.ClearForEditor(oldEditor);
+		interestedWords.CleanForEditor(oldEditor);
 		interestedWords.RenderForEditor(vscode.window.activeTextEditor);
 	});
 	context.subscriptions.push(disposable);
