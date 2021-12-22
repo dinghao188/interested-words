@@ -9,6 +9,7 @@
 	"categories": [
 		"Other"
 	],
+	"icon": "https://github.com/dinghao188/interested-words/tree/main/images/icon.png",
 	"activationEvents": [
 		"onCommand:interested-words.toggleHighlightWord",
 		"onCommand:interested-words.toggleHighlightSelect",
